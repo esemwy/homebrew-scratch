@@ -41,6 +41,7 @@ class Bftpd < Formula
             echo "Ignoring '$ARGUMENT'"
         fi
       EOS
+    end
     chmod 0755, script
   end
 end
