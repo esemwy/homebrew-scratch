@@ -21,6 +21,41 @@ class Bftpd < Formula
     etc.install "bftpd.conf"
     man8.install "bftpd.8"
 
+    plist = etc/"bftpd.plist"
+    unless plist.exist?
+      plist.write <<-EOS.undent
+        <?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+        <plist version="1.0">
+        <dict>
+        	<key>Disabled</key>
+        	<false/>
+        	<key>EnvironmentVariables</key>
+        	<dict>
+        		<key>PATH</key>
+        		<string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin</string>
+        	</dict>
+        	<key>KeepAlive</key>
+        	<dict>
+        		<key>SuccessfulExit</key>
+        		<true/>
+        	</dict>
+        	<key>Label</key>
+        	<string>com.smy.bftpd</string>
+        	<key>ProgramArguments</key>
+        	<array>
+        		<string>/usr/local/sbin/bftpd</string>
+        		<string>-D</string>
+        		<string>-c</string>
+        		<string>/usr/local/etc/bftpd.conf</string>
+        	</array>
+        	<key>RunAtLoad</key>
+        	<false/>
+        </dict>
+        </plist>
+      EOS
+    end
+    chmod 644, plist
     script = bin/"post-stor-script.sh"
     unless script.exist?
       script.write <<-EOS.undent
