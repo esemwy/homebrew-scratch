@@ -21,7 +21,7 @@ class Bftpd < Formula
     etc.install "bftpd.conf"
     man8.install "bftpd.8"
 
-    script = bin/"post-stor-script.conf"
+    script = bin/"post-stor-script.sh"
     unless script.exist?
       script.write <<-EOS.undent
         #!/bin/bash
