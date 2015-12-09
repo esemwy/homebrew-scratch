@@ -68,9 +68,9 @@ class Bftpd < Formula
             BASE=$(basename "$ARGUMENT" .JPG)
             ID=${BASE:4}
             OUTPUT="${DIR}/HPC_${ID}.JPG"
-            convert -geometry 1800x1200 "$ARGUMENT" -gravity SouthEast \
-                -stroke '#000C' -strokewidth 2 -annotate 0 $ID \
-                -stroke  none   -fill yellow -annotate 0 $ID "$OUTPUT"
+            convert -geometry 1800x1200 "$ARGUMENT" -gravity SouthEast \\
+                    -stroke '#000C' -strokewidth 2 -font "/Library/Fonts/Arial.ttf" -pointsize 15 -annotate 0 $ID \\
+                    -stroke  none   -fill yellow -font "/Library/Fonts/Arial.ttf" -pointsize 15 -annotate 0 $ID "$OUTPUT"
             open "$OUTPUT"
         else
             echo "Ignoring '$ARGUMENT'"
