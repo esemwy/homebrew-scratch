@@ -55,7 +55,7 @@ class Bftpd < Formula
         </plist>
       EOS
     end
-    chmod 644, plist
+    chmod 0644, plist
     script = bin/"post-stor-script.sh"
     unless script.exist?
       script.write <<-EOS.undent
