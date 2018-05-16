@@ -8,37 +8,11 @@ class Icestorm < Formula
   depends_on "libffi"
   depends_on "libusb"
 
-  patch :DATA
+  #patch :DATA
 
   def install
+    ENV.prepend_path "PKG_CONFIG_PATH", lib/"pkgconfig"
     system "make", "install", "PREFIX=#{prefix}"
-    # mkdir -p /usr/local/share/icebox
-    # mkdir -p /usr/local/bin
-    # cp chipdb-384.txt    /usr/local/share/icebox/
-    # cp chipdb-1k.txt     /usr/local/share/icebox/
-    # cp chipdb-8k.txt     /usr/local/share/icebox/
-    # cp chipdb-5k.txt     /usr/local/share/icebox/
-    # cp chipdb-lm4k.txt   /usr/local/share/icebox/
-    # cp icebox.py         /usr/local/bin/icebox.py
-    # cp iceboxdb.py       /usr/local/bin/iceboxdb.py
-    # cp icebox_chipdb.py  /usr/local/bin/icebox_chipdb
-    # cp icebox_diff.py    /usr/local/bin/icebox_diff
-    # cp icebox_explain.py /usr/local/bin/icebox_explain
-    # cp icebox_asc2hlc.py /usr/local/bin/icebox_asc2hlc
-    # cp icebox_hlc2asc.py /usr/local/bin/icebox_hlc2asc
-    # cp icebox_colbuf.py  /usr/local/bin/icebox_colbuf
-    # cp icebox_html.py    /usr/local/bin/icebox_html
-    # cp icebox_maps.py    /usr/local/bin/icebox_maps
-    # cp icebox_vlog.py    /usr/local/bin/icebox_vlog
-    # cp icebox_stat.py    /usr/local/bin/icebox_stat
-    # cp icepack /usr/local/bin/icepack
-    # ln -sf icepack /usr/local/bin/iceunpack
-    # cp iceprog /usr/local/bin/iceprog
-    # cp icemulti /usr/local/bin/icemulti
-    # cp icepll /usr/local/bin/icepll
-    # cp icetime /usr/local/bin/icetime
-    # cp icebram /usr/local/bin/icebram
-
   end
 
   test do
