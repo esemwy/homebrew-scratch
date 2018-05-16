@@ -74,6 +74,8 @@ diff -Naur a/iceprog/Makefile b/iceprog/Makefile
 +    LIBFTDI_NAME = $(shell PKG_CONFIG_PATH=$(PKG_CONFIG_PATH) $(PKG_CONFIG) --exists libftdi1 && echo ftdi1 || echo ftdi)
 +  else
 +    LIBFTDI_NAME = $(shell $(PKG_CONFIG) --exists libftdi1 && echo ftdi1 || echo ftdi)
++    echo $(LIBFTDI_NAME)
++    echo $(PKG_CONFIG_PATH)
 +  endif
    LDLIBS = -L/usr/local/lib -l$(LIBFTDI_NAME) -lm
  endif
