@@ -4,9 +4,7 @@
 class ArachnePnr < Formula
   desc "Arachne-pnr implements the place and route step of the hardware compilation process for FPGAs."
   homepage "https://github.com/cseed/arachne-pnr/"
-  url "https://github.com/cseed/arachne-pnr/archive/master.zip"
-  version ""
-  sha256 ""
+  head "https://github.com/cseed/arachne-pnr"
 
   depends_on "python3"
   depends_on "pkg-config"
