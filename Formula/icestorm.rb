@@ -47,7 +47,6 @@ class Icestorm < Formula
 end
 
 __END__
-diff -Naur a b
 diff -Naur a/config.mk b/config.mk
 --- a/config.mk	2018-05-16 10:13:34.000000000 -0400
 +++ b/config.mk	2018-05-16 10:24:44.000000000 -0400
@@ -64,8 +63,8 @@ diff -Naur a/config.mk b/config.mk
  C_STD ?= c99
 diff -Naur a/iceprog/Makefile b/iceprog/Makefile
 --- a/iceprog/Makefile	2018-05-16 10:13:34.000000000 -0400
-+++ b/iceprog/Makefile	2018-05-16 13:05:11.000000000 -0400
-@@ -3,7 +3,11 @@
++++ b/iceprog/Makefile	2018-05-16 13:26:18.000000000 -0400
+@@ -3,8 +3,15 @@
  ifneq ($(shell uname -s),Darwin)
    LDLIBS = -L/usr/local/lib -lm
  else
@@ -74,13 +73,15 @@ diff -Naur a/iceprog/Makefile b/iceprog/Makefile
 +    LIBFTDI_NAME = $(shell PKG_CONFIG_PATH=$(PKG_CONFIG_PATH) $(PKG_CONFIG) --exists libftdi1 && echo ftdi1 || echo ftdi)
 +  else
 +    LIBFTDI_NAME = $(shell $(PKG_CONFIG) --exists libftdi1 && echo ftdi1 || echo ftdi)
-+    echo $(LIBFTDI_NAME)
-+    echo $(PKG_CONFIG_PATH)
 +  endif
    LDLIBS = -L/usr/local/lib -l$(LIBFTDI_NAME) -lm
++  echo $(LDLIBS)
++  echo $(LIBFTDI_NAME)
++  echo $(PKG_CONFIG_PATH)
  endif
  
-@@ -12,8 +16,13 @@
+ ifeq ($(STATIC),1)
+@@ -12,8 +19,13 @@
  LDLIBS += $(shell for pkg in libftdi1 libftdi; do $(PKG_CONFIG) --silence-errors --static --libs $$pkg && exit; done; echo -lftdi; )
  CFLAGS += $(shell for pkg in libftdi1 libftdi; do $(PKG_CONFIG) --silence-errors --static --cflags $$pkg && exit; done; )
  else
