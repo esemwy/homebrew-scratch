@@ -11,6 +11,7 @@ class ArachnePnr < Formula
   depends_on "icestorm"
 
   def install
+    ENV.prepend_path "PKG_CONFIG_PATH", "/usr/local/lib/pkgconfig"
     system "make", "install", "PREFIX=#{prefix}"
   end
 
