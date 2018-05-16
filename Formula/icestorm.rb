@@ -11,7 +11,7 @@ class Icestorm < Formula
   #patch :DATA
 
   def install
-    ENV.prepend_path "PKG_CONFIG_PATH", lib/"pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", "/usr/local/lib/pkgconfig"
     system "make", "install", "PREFIX=#{prefix}"
   end
 
