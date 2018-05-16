@@ -10,6 +10,7 @@ class ArachnePnr < Formula
 
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", "/usr/local/lib/pkgconfig"
+    system "make", "PREFIX=#{prefix}"
     system "make", "install", "PREFIX=#{prefix}"
   end
 
