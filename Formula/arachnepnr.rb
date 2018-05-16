@@ -1,4 +1,4 @@
-class ArachnePnr < Formula
+class Arachnepnr < Formula
   desc "Arachne-pnr implements the place and route step of the hardware compilation process for FPGAs."
   homepage "https://github.com/cseed/arachne-pnr/"
   head "https://github.com/cseed/arachne-pnr"
