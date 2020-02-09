@@ -22,8 +22,3 @@ class PrjTrellis < Formula
   #   system "arachne-pnr", "--help"
   # end
 end
-
-cd libtrellis
-cmake -DCMAKE_INSTALL_PREFIX=/usr .
-make
-sudo make install
