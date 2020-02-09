@@ -1,4 +1,4 @@
-class PrjTrellis < Formula
+class Prjtrellis < Formula
   desc "Arachne-pnr implements the place and route step of the hardware compilation process for FPGAs."
   homepage "https://github.com/SymbiFlow/prjtrellis"
   head "https://github.com/SymbiFlow/prjtrellis.git"
