@@ -13,7 +13,7 @@ class Prjtrellis < Formula
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", "/usr/local/lib/pkgconfig"
     Dir.chdir('libtrellis')
-    system "cmake", "-DCMAKE_INSTALL_PREFIX=/usr", ".", *std_cmake_args
+    system "cmake", ".", *std_cmake_args
     system "make"
     system "make", "install"
   end
