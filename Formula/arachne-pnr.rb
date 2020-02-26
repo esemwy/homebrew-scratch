@@ -1,15 +1,21 @@
 class ArachnePnr < Formula
-    desc "Placement and routing for FPGA"
-    homepage "http://www.clifford.at/icestorm/"
-    url "https://github.com/YosysHQ/arachne-pnr/archive/master.tar.gz"
-    sha256 "5ea58342bbecd3a579b4b76e4f3138926a18bcefad4aab14999c95203c43b335"
-    head "https://github.com/YosysHQ/arachne-pnr"
-    version "0.1.0"
+  desc "Arachne-pnr implements the place and route step of the hardware compilation process for FPGAs."
+  homepage "https://github.com/cseed/arachne-pnr/"
+  head "https://github.com/cseed/arachne-pnr.git"
+  sha256 "b9ad8a6a57d72cd9d90736b5c9bc83960d79b667ab8c14f60a704519f41d7785"
 
-    depends_on "icestorm"
+  depends_on "python3"
+  depends_on "pkg-config"
+  depends_on "icestorm"
 
-    def install
-        system "make", "-j#{`sysctl -n hw.logicalcpu`.chomp}"
-        system "make", "install", "PREFIX=#{prefix}", "ICEBOX=#{Formula["icestorm"].opt_share}/icebox"
-    end
+  def install
+    ENV.prepend_path "PKG_CONFIG_PATH", "/usr/local/lib/pkgconfig"
+    ENV["ICEBOX"] = Formula["icestorm"].opt_prefix/"share/icebox"
+    system "make", "PREFIX=#{prefix}"
+    system "make", "install", "PREFIX=#{prefix}"
+  end
+
+  test do
+    system "arachne-pnr", "--help"
+  end
 end
