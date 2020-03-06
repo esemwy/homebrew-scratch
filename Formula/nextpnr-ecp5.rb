@@ -1,7 +1,7 @@
 class NextpnrEcp5 < Formula
   desc "portable FPGA place-and-route tool"
-  homepage "https://github.com/YosysHQ/nextpnr"
-  head "https://github.com/YosysHQ/nextpnr.git"
+  homepage "https://symbiflow.github.io/"
+  head "https://github.com/SymbiFlow/nextpnr.git"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
