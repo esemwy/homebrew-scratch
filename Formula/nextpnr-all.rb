@@ -1,4 +1,4 @@
-class NextpnrAll < Formula
+class NextpnrEcp5 < Formula
   desc "portable FPGA place-and-route tool"
   homepage "https://github.com/YosysHQ/nextpnr"
   head "https://github.com/YosysHQ/nextpnr.git"
@@ -13,7 +13,7 @@ class NextpnrAll < Formula
   depends_on "project-trellis"
 
   def install
-    system "cmake", "-DARCH=all", "-DTRELLIS_ROOT=#{HOMEBREW_PREFIX}/share/trellis", \
+    system "cmake", "-DARCH=ecp5", "-DTRELLIS_ROOT=#{HOMEBREW_PREFIX}/share/trellis", \
        ".", *std_cmake_args, "-DBoost_NO_BOOST_CMAKE=on", "-DBUILD_TESTS=OFF", "-DBUILD_GUI=OFF"
     system "make", "install"
   end
