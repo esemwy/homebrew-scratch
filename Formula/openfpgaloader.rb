@@ -1,4 +1,4 @@
-class OpenFPGALoader < Formula
+class Openfpgaloader < Formula
   desc "JTAG loader for various FPGA"
   homepage "https://github.com/trabucayre/openFPGALoader"
   head "https://github.com/trabucayre/openFPGALoader.git"
