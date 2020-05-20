@@ -10,7 +10,7 @@ class Openfpgaloader < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", "-DENABLE_UDEV=OFF", "-DBUILD_STATIC=OFF", "-DLIBARGPSTATIC=/usr/local/lib/libargp.a", *std_cmake_args, *args
+      system "cmake", "..", "-DENABLE_UDEV=OFF", "-DBUILD_STATIC=OFF", "-DLIBARGPSTATIC=/usr/local/lib/libargp.a", *std_cmake_args
       system "make", "install"
     end
   end
